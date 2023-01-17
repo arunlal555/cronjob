@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Rotate and compress system logs
+logrotate -f /etc/logrotate.conf
+
+# Print confirmation
+echo "System logs rotated and compressed"
