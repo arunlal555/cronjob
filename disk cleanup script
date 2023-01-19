@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+# Define the number of days
+days=30
+
+# Find and remove files that haven't used last 30 days
+find / -type f -atime +$days -exec rm -rf {} \;
+
+# Print conformation
+echo "The old and unnessary files are deleted"
