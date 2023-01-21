@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+# Rotate and compress system logs
+logrotate -f /etc/logrotate.conf
+
+# Mount the backup drive
+mount /dev/sdb /mnt/backup
+
+# Perform the backup 
+rsync -av /important_data /mnt/backup
+
+# Unmount the backup drive
+umount /mnt/backup
+
+# Print the conformation
+echo "Logrotation, backup drive mounted and backup completed"
