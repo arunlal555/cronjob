@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+# Define the ip address to ping
+IP=8.8.8.8
+
+# Sent a ping result and capture the result
+result=$(ping -c 1 $IP)
+
+# Check if the ping was successful
+if 
+  [[ $result == *1 packet transmitted, 1 packet recieved* ]]; then
+  # Ping was successful. do nothing
+  :
+else
+  # Ping was not successful, and sent an email alert
+  echo "Network connectivity is down" | mail -s "Network Alert" your@email.com
+fi
